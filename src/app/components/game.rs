@@ -38,7 +38,7 @@ pub fn Game() -> impl IntoView {
             if let Some(score_value) = score.get() {
                 view!{
                     <div class="flex flex-row h-full justify-center mt-20 space-x-8">
-                        <h1 class="text-white text-3xl font-bold">"🎉 Du hast "{score_value}" Punkte erziehtl! 🎉"</h1>
+                        <h1 class="text-white text-3xl font-bold">"🎉 Du hast "{score_value}" Punkte erziehlt! 🎉"</h1>
                         <br/>
                         <button class="text-white rounded-full text-2xl font-bold bg-[#600070]" on:click=move |_| {
                             score.set(None);
