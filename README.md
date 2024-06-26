@@ -10,4 +10,5 @@ Zusätzlich muss nur eine PostgreSQL Datenbank bereitgestellt werden. Diese wird
 3. Starten des Docker-Images: `docker run -e DATABASE_URL="postgres://<username>:<password>@<IP>/mandelguessr" -p 80:80 mandelguessr`
 
 
-In case the server just crashes randomly consider trying this fix: https://github.com/diesel-rs/diesel/discussions/2947#discussioncomment-2025857
+Falls die Anwendung lokal unter Windows mit dem Tool `cargo-leptos` gestartet wird, sollte folgender Workaround für einen PostgreSQL-Bug beachtet werden:
+https://github.com/diesel-rs/diesel/discussions/2947#discussioncomment-2025857
