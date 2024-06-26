@@ -16,7 +16,7 @@ pub fn Content() -> impl IntoView {
 
     view! {
         <ErrorBoundary fallback = move |_| {
-            leptos_router::use_navigate()("/login", Default::default());
+            leptos_router::use_navigate()("/WebEng/Projekt/login", Default::default());
             view! {"Du bist nicht angemeldet, Weiterleitung zur Loginseite..."}
         }>
             <Suspense fallback=move || view!{}>

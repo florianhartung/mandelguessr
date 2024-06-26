@@ -12,8 +12,8 @@ pub fn LandingPage() -> impl IntoView {
                 <h1 class="mt-2 text-8xl mb-4 text-white font-bold">"MandelGuessr"</h1>
                 <p class="text-2xl text-white font-bold">"It's like Geoguessr except it's 💩"</p>
                 <div class="flex flex-row space-x-4 mt-8">
-                    <A href="/login"><button class="rounded-full bg-[#600070] text-white text-xl font-bold py-2 px-4">Anmelden</button></A>
-                    <A href="/leaderboard"><button class="rounded-full bg-[#600070] text-white text-xl font-bold py-2 px-4">Rangliste</button></A>
+                    <A href="/WebEng/Projekt/login"><button class="rounded-full bg-[#600070] text-white text-xl font-bold py-2 px-4">Anmelden</button></A>
+                    <A href="/WebEng/Projekt/leaderboard"><button class="rounded-full bg-[#600070] text-white text-xl font-bold py-2 px-4">Rangliste</button></A>
                 </div>
             </div>
         </div>

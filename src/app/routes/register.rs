@@ -26,7 +26,7 @@ pub fn Register() -> impl IntoView {
                 <TextInputField input_name="repeat_password" label="Passwort wiederholen" is_password=true />
                 <SubmitButton label="Registrieren" />
                 <div class="text-red-600">{error_msg}</div>
-                <A class="text-blue-700 underline" href="/login">
+                <A class="text-blue-700 underline" href="/WebEng/Projekt/login">
                     Zum Login
                 </A>
                 <br/>

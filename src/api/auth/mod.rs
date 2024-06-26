@@ -77,7 +77,7 @@ pub async fn signup_action(
     };
 
     if server::set_auth_cookie(user.username) {
-        leptos_axum::redirect("/content");
+        leptos_axum::redirect("/WebEng/Projekt/content");
         return Ok(SignupResponse::Ok)
     } else {
         response_options.set_status(StatusCode::INTERNAL_SERVER_ERROR);
@@ -106,7 +106,7 @@ pub async fn login_action(
     const INCORRECT_LOGIN_DATA: &str = "Falscher Benutzername oder Passwort.";
 
     if let Some(already_logged_in_username) = read_current_user_from_headers().await {
-        leptos_axum::redirect("/content");
+        leptos_axum::redirect("/WebEng/Projekt/content");
         return Err(ServerFnError::new("you are already logged in".to_owned()));
     }
 
@@ -131,7 +131,7 @@ pub async fn login_action(
     }
 
     if server::set_auth_cookie(user.username) {
-        leptos_axum::redirect("/content");
+        leptos_axum::redirect("/WebEng/Projekt/content");
         Ok(LoginResponse::Ok)
     } else {
         response_options.set_status(StatusCode::INTERNAL_SERVER_ERROR);

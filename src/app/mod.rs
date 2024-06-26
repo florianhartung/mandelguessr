@@ -48,14 +48,14 @@ pub fn App() -> impl IntoView {
         // content for this welcome page
         <Router fallback=|| "Route not found".into_view()>
             <nav class="w-full bg-[#232323] flex flex-row justify-between items-center">
-                <A href="/" class="flex flex-row items-center justify-start p-2 space-x-2">
+                <A href="/WebEng/Projekt/" class="flex flex-row items-center justify-start p-2 space-x-2">
                     <img src="/icon.png" class="h-14 rounded-full"/>
                     <div class="text-white font-bold text-3xl">MandelGuessr</div>
                 </A>
                 {move ||
                     user.map(move |x| if x.is_ok() {
                                 view! {
-                                    <A href="/content">
+                                    <A href="/WebEng/Projekt/content">
                                         <button class="text-white bg-[#1AA404] rounded-full text-xl font-bold px-4 py-2">Spiel starten</button>
                                     </A>
                                 }.into_view()
@@ -80,7 +80,7 @@ pub fn App() -> impl IntoView {
                                 })
                             .unwrap_or_else(move |_| view!{
                                 <div class="text-white font-bold text-xl h-14 py-0.5 px-2 text-end">
-                                    <button on:click=|_| leptos_router::use_navigate()("/login", Default::default()) class="bg-[#600070] rounded-full h-full py-1 px-8">
+                                    <button on:click=|_| leptos_router::use_navigate()("/WebEng/Projekt/login", Default::default()) class="bg-[#600070] rounded-full h-full py-1 px-8">
                                         Anmelden
                                     </button>
                                 </div>
@@ -90,7 +90,7 @@ pub fn App() -> impl IntoView {
             </nav>
             <main class="bg-[#383842] h-full">
                 <Routes>
-                    <Route path="register" view=move || {
+                    <Route path="/WebEng/Projekt/register" view=move || {
                         create_effect(move |_| {
                             if let Some(Ok(_)) = user.get() {
                                 leptos_router::use_navigate()("/content", Default::default());
@@ -98,7 +98,7 @@ pub fn App() -> impl IntoView {
                         });
                         view! { <Register /> }
                     }/>
-                    <Route path="login" view=move || {
+                    <Route path="/WebEng/Projekt/login" view=move || {
                         create_effect(move |_| {
                             if let Some(Ok(_)) = user.get() {
                                 leptos_router::use_navigate()("/content", Default::default());
@@ -106,19 +106,19 @@ pub fn App() -> impl IntoView {
                         });
                         view! { <Login /> }
                     }/>
-                    <Route path="" view=move || {
+                    <Route path="/WebEng/Projekt" view=move || {
                         create_effect(move |_| {
                             user.refetch();
                         });
                         view!{ <LandingPage /> }
                     }/>
-                    <Route path="content" view=move || {
+                    <Route path="/WebEng/Projekt/content" view=move || {
                         create_effect(move |_| {
                             user.refetch();
                         });
                         view!{ <Content /> }
                     }/>
-                    <Route path="leaderboard" view=move || {
+                    <Route path="/WebEng/Projekt/leaderboard" view=move || {
                         create_effect(move |_| {
                             user.refetch();
                         });

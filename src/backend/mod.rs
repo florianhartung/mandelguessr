@@ -8,7 +8,7 @@ use leptos::{get_configuration, provide_context};
 use leptos_axum::{generate_route_list, LeptosRoutes};
 use tokio::net::TcpListener;
 use tower_http::catch_panic::CatchPanicLayer;
-use tracing::level_filters::LevelFilter;
+use tracing::{level_filters::LevelFilter, Level};
 
 pub mod database;
 pub mod state;
@@ -53,7 +53,7 @@ pub async fn start_server() {
         .with_state(app_state);
 
     let listener = TcpListener::bind(&addr).await.unwrap();
-    event!(Level::INFO, "started server");
+    tracing::event!(Level::INFO, "started server");
 
     axum::serve(listener, router.into_make_service())
         .await

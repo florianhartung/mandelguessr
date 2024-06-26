@@ -41,7 +41,7 @@ pub fn Login() -> impl IntoView {
                 <TextInputField input_name="password" label="Passwort" is_password=true/>
                 <SubmitButton label="Anmelden" />
                 <div class="text-red-600">{error_msg}</div>
-                <A class="text-blue-700 underline" href="/register">
+                <A class="text-blue-700 underline" href="/WebEng/Projekt/register">
                     Zur Registrierung
                 </A>
                 <br/>
