@@ -35,6 +35,8 @@ pub async fn start_server() {
         database: Arc::new(database::create_connection_pool()),
     };
 
+    database::run_migrations(&mut app_state.database.get().unwrap()).unwrap();
+
     // Build router
     let cloned_app_state = app_state.clone();
     let router = Router::new()
@@ -51,6 +53,7 @@ pub async fn start_server() {
         .with_state(app_state);
 
     let listener = TcpListener::bind(&addr).await.unwrap();
+    event!(Level::INFO, "started server");
 
     axum::serve(listener, router.into_make_service())
         .await
