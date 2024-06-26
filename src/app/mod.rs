@@ -48,7 +48,7 @@ pub fn App() -> impl IntoView {
         // content for this welcome page
         <Router fallback=|| "Route not found".into_view()>
             <nav class="w-full bg-[#232323] flex flex-row justify-between items-center">
-                <A href="/WebEng/Projekt/" class="flex flex-row items-center justify-start p-2 space-x-2">
+                <A href="/WebEng/Projekt" class="flex flex-row items-center justify-start p-2 space-x-2">
                     <img src="/icon.png" class="h-14 rounded-full"/>
                     <div class="text-white font-bold text-3xl">MandelGuessr</div>
                 </A>
@@ -93,7 +93,7 @@ pub fn App() -> impl IntoView {
                     <Route path="/WebEng/Projekt/register" view=move || {
                         create_effect(move |_| {
                             if let Some(Ok(_)) = user.get() {
-                                leptos_router::use_navigate()("/content", Default::default());
+                                leptos_router::use_navigate()("/WebEng/Projekt/content", Default::default());
                             }
                         });
                         view! { <Register /> }
@@ -101,7 +101,7 @@ pub fn App() -> impl IntoView {
                     <Route path="/WebEng/Projekt/login" view=move || {
                         create_effect(move |_| {
                             if let Some(Ok(_)) = user.get() {
-                                leptos_router::use_navigate()("/content", Default::default());
+                                leptos_router::use_navigate()("/WebEng/Projekt/content", Default::default());
                             }
                         });
                         view! { <Login /> }

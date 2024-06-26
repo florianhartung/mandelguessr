@@ -17,7 +17,7 @@ pub fn LogoutButton(#[prop(into)] on_click: Callback<()>) -> impl IntoView {
     let should_redirect = move || logout_action.value().get() == Some(Ok(()));
     create_effect(move |_| {
         if should_redirect() {
-            navigate("/WebEng/Projekt/", Default::default());
+            navigate("/WebEng/Projekt", Default::default());
             on_click.call(());
         }
     });

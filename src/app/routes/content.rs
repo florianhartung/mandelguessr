@@ -14,6 +14,12 @@ pub fn Content() -> impl IntoView {
     let position = create_rw_signal((0.0, 0.0));
     let zoom_exponent = create_rw_signal(0.0);
 
+    create_effect(move |_| {
+        if username_resource.map(|x| x.is_err()).unwrap_or(false) {
+            leptos_router::use_navigate()("/WebEng/Projekt", Default::default());
+        }
+    });
+
     view! {
         <ErrorBoundary fallback = move |_| {
             leptos_router::use_navigate()("/WebEng/Projekt/login", Default::default());
